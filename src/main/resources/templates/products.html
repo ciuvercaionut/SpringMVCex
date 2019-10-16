@@ -19,7 +19,7 @@
 <body>
 
 <div class="container">
-    <div th:if="${not #lists.isEmplty(products)}">
+    <div th:if="${not #lists.isEmpty(products)}">
         <h2>Product List</h2>
         <table class="table table-striped">
             <tr>
@@ -30,9 +30,9 @@
             </tr>
             <tr th:each="product : ${products}">
                 <td th:text="@{product.id}"></td>
-                <td th:text="@{prodct.description}"></td>
+                <td th:text="@{product.description}"></td>
                 <td th:text="@{product.price}"></td>
-                <td th:text="@{product.imageUrl"></td>
+                <td th:text="@{product.imageUrl}"></td>
             </tr>
         </table>
     </div>
