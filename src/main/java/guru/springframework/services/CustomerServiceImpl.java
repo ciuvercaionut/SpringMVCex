@@ -81,6 +81,7 @@ public class CustomerServiceImpl extends AbstractMapService implements CustomerS
         customer4.setAddressLine1("1 Main St");
         customer4.setCity("Miami");
         customer4.setState("Florida");
+        customer4.setZipCode("432132");
         customer4.setEmail("michael@burnnotice.com");
         customer4.setPhoneNumber("305.333.0101");
 
