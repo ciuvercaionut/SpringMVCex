@@ -49,7 +49,7 @@ public class ProductController {
     @RequestMapping(value = "/product", method = RequestMethod.POST)
     public String saveOrUpdateProduct(Product product){
         Product savedProduct = productService.saveOrUpdate(product);
-        return "redirect:product/show/" + savedProduct.getId();
+        return "redirect:/product/show/" + savedProduct.getId();
     }
 
 

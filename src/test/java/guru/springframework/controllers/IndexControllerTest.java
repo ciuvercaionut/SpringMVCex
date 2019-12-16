@@ -26,13 +26,6 @@ public class IndexControllerTest {
     public void testIndex() throws Exception{
         mockMvc.perform(get("/"))
                 .andExpect(status().isOk())
-                .andExpect(view().name("indexdd"));
-    }
-
-    @Test
-    public void testCustomer() throws Exception{
-        mockMvc.perform(get("/list"))
-                .andExpect(status().isOk())
-                .andExpect(view().name("list"));
+                .andExpect(view().name("index"));
     }
 }
