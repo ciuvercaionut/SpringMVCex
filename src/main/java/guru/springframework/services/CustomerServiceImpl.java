@@ -2,12 +2,14 @@ package guru.springframework.services;
 
 import guru.springframework.domain.Customer;
 import guru.springframework.domain.DomainObject;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
 import java.util.List;
 
 @Service
+@Profile("map")
 public class CustomerServiceImpl extends AbstractMapService implements CustomerService{
 
     @Override
@@ -30,23 +32,22 @@ public class CustomerServiceImpl extends AbstractMapService implements CustomerS
         super.delete(id);
     }
 
-
     @Override
     public void loadDomainObjects() {
-       domainMap = new HashMap<>();
+        domainMap = new HashMap<>();
 
-       Customer customer1 = new Customer();
-       customer1.setId(1);
-       customer1.setFirstName("Michael");
-       customer1.setLastName("Weston");
-       customer1.setAddressLine1("1 Main St");
-       customer1.setCity("Miami");
-       customer1.setState("Florida");
-       customer1.setZipCode("33101");
-       customer1.setEmail("michael@burnnotice.com");
-       customer1.setPhoneNumber("305.333.0101");
+        Customer customer1 = new Customer();
+        customer1.setId(1);
+        customer1.setFirstName("Michael");
+        customer1.setLastName("Weston");
+        customer1.setAddressLine1("1 Main St");
+        customer1.setCity("Miami");
+        customer1.setState("Florida");
+        customer1.setZipCode("33101");
+        customer1.setEmail("michael@burnnotice.com");
+        customer1.setPhoneNumber("305.333.0101");
 
-       domainMap.put(1, customer1);
+        domainMap.put(1, customer1);
 
         Customer customer2 = new Customer();
         customer2.setId(2);
@@ -87,4 +88,5 @@ public class CustomerServiceImpl extends AbstractMapService implements CustomerS
 
         domainMap.put(4, customer4);
     }
+
 }
