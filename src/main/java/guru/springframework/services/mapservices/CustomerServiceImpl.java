@@ -1,7 +1,9 @@
-package guru.springframework.services;
+package guru.springframework.services.mapservices;
 
 import guru.springframework.domain.Customer;
 import guru.springframework.domain.DomainObject;
+import guru.springframework.services.mapservices.AbstractMapService;
+import guru.springframework.services.CustomerService;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
@@ -10,7 +12,7 @@ import java.util.List;
 
 @Service
 @Profile("map")
-public class CustomerServiceImpl extends AbstractMapService implements CustomerService{
+public class CustomerServiceImpl extends AbstractMapService implements CustomerService {
 
     @Override
     public List<DomainObject> listAll() {
