@@ -1,4 +1,4 @@
 package guru.springframework.services.jpaservices;
 
-public class AbstractJpaDaoService {
+public class AbstractJpaDaoService  {
 }

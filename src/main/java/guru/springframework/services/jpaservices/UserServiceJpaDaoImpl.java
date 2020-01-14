@@ -7,16 +7,26 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
+import javax.persistence.*;
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.metamodel.Metamodel;
 import java.util.List;
+import java.util.Map;
 
 @Service
 @Profile("jpadao")
 public class UserServiceJpaDaoImpl extends AbstractJpaDaoService implements UserService {
 
     private EncryptionService encryptionService;
-    EntityManagerFactory emf;
+
+    EntityManagerFactory emf ;
+
+    @PersistenceUnit
+    public void setEmf(EntityManagerFactory emf) {
+        this.emf = emf;
+    }
+
+
 
     @Autowired
     public void setEncryptionService(EncryptionService encryptionService) {
@@ -44,10 +54,12 @@ public class UserServiceJpaDaoImpl extends AbstractJpaDaoService implements User
         em.getTransaction().begin();
 
         if(domainObject.getPassword() != null){
-            domainObject.setEngcryptedPassword(encryptionService.encryptString(domainObject.getPassword()));
+            domainObject.setEncryptedPassword(encryptionService.encryptString(domainObject.getPassword()));
         }
 
         User savedUser = em.merge(domainObject);
+        em.getTransaction().commit();
+
         return savedUser;
 
     }

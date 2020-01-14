@@ -17,7 +17,7 @@ public class User implements DomainObject{
     @Transient
     private String password;
 
-    private String engcryptedPassword;
+    private String encryptedPassword;
     private boolean enabled = true;
 
     @Override
@@ -54,12 +54,12 @@ public class User implements DomainObject{
         this.password = password;
     }
 
-    public String getEngcryptedPassword() {
-        return engcryptedPassword;
+    public String getEncryptedPassword() {
+        return encryptedPassword;
     }
 
-    public void setEngcryptedPassword(String engcryptedPassword) {
-        this.engcryptedPassword = engcryptedPassword;
+    public void setEncryptedPassword(String engcryptedPassword) {
+        this.encryptedPassword = engcryptedPassword;
     }
 
     public boolean isEnabled() {

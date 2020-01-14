@@ -16,12 +16,12 @@ public class EncryptionServiceImpl implements EncryptionService{
 
     @Override
     public String encryptString(String input) {
-        return null;
+        return strongEncryptor.encryptPassword(input);
     }
 
     @Override
     public boolean checkPassword(String plainPassword, String encryptedPassword) {
-        return false;
+        return strongEncryptor.checkPassword(plainPassword, encryptedPassword);
     }
 }
 
